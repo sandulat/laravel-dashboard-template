@@ -196,6 +196,24 @@ public function logoutRedirect(): RedirectResponse
 
 > Note: Each method from this service provider has dependency injection available.
 
+## Customization
+
+I've tried to split the template into as many components & partials as possible. Just create inside your project the folder: `resources/views/vendor/laravel-dashboard-template` and now you can copy the files from the package and customize them. Here is the list:
+- partials/alert.blade.php
+- partials/alert_error.blade.php
+- partials/alert_success.blade.php
+- partials/sidebar.blade.php
+- partials/sidebar_link.blade.php
+- partials/sidebar_logo.blade.php
+- partials/topbar_profile_dropdown.blade.php
+
+---
+
+- components/card.blade.php
+- components/dropdown.blade.php
+- components/dropdown_item.blade.php
+- components/topbar.blade.php
+
 ## Credits
 
 Created by [Stratulat Alexandru](https://twitter.com/sandulat).
