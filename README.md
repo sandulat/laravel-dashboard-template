@@ -226,6 +226,26 @@ I've tried to split the template into as many components & partials as possible.
 
 The main div that wraps the dashboard has an `app` id. You can load your front-end framework onto this id and start using your components on all pages.
 
+```jsx
+// Vue
+new Vue({
+    el: '#app',
+});
+
+//React
+ReactDOM.render(<App />, document.getElementById('app'));
+```
+
+After you'll compile your front-end assets you can include them like this:
+```blade
+@section('ldt-head')
+    <link href="{{ mix('/css/app.css') }}" rel="stylesheet">
+@endsection
+@section('ldt-scripts')
+    <script src="{{ mix('/js/app.js') }}"></script>
+@endsection
+```
+
 ## Credits
 
 Created by [Stratulat Alexandru](https://twitter.com/sandulat).
