@@ -163,6 +163,7 @@ public function profileDropdownLinks(): array
 /**
  * Logout the user.
  *
+ * @param \Illuminate\Http\Request $request
  * @return void
  */
 public function logout(Request $request): void
