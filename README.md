@@ -39,11 +39,12 @@ Create a route and a controller that will return a view. Inside the view place t
 
 > Note: `ldt` stands for `laravel-dashboard-template`.
 
-As you can see `laravel-dashboard-template::page` is just a layout. Besides `ldt-content` the layout provides 4 more additional slots:
+As you can see `laravel-dashboard-template::page` is just a layout. Besides `ldt-content` the layout provides more additional slots:
 - `ldt-head` - Head section for CSS, meta, etc.
 - `ldt-scripts` - Scripts section to include JS files.
 - `ldt-topbar-left` - Left section of topbar.
 - `ldt-topbar-right` - Right section of topbar, next to profile dropdown.
+- `ldt-sidebar-footer` - Footer section of sidebar.
 
 To avoid duplication of these slots, it would be better to create your own layout that will extend the package's layout.
 
