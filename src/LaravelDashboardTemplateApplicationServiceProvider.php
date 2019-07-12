@@ -24,7 +24,7 @@ class LaravelDashboardTemplateApplicationServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        foreach([
+        foreach ([
             'userName',
             'userAvatar',
             'sidebarLinks',
