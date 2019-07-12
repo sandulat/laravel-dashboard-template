@@ -1,4 +1,4 @@
-<p align="center"><img src="https://coltorapps.com/images/ldt.png" width="80%"></p>
+<p align="center"><img src="https://coltorapps.com/images/ldt-screenshot.png" width="80%"></p>
 <h1 align="center">Laravel Dashboard Template</h1>
 <p align="center">
 💫Basic Dashboard Template as a Package.💫
