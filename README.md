@@ -246,6 +246,8 @@ After you'll compile your front-end assets you can include them like this:
 @endsection
 ```
 
+> Note: If you don't have [front-end assets versioning](https://laravel.com/docs/5.8/mix#versioning-and-cache-busting) you might want to use the `asset()` method instead of `mix()`.
+
 ## Credits
 
 Created by [Stratulat Alexandru](https://twitter.com/sandulat).
