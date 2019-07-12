@@ -11,11 +11,11 @@
     @endforeach
 
     @if(auth()->check())
-        @component('laravel-dashboard-template::components.dropdown_item', ['onClick' => 'event.preventDefault(); document.getElementById("logout-form").submit();'])
+        @component('laravel-dashboard-template::components.dropdown_item', ['onClick' => 'event.preventDefault(); document.getElementById("ldt-logout-form").submit();'])
             Logout
         @endcomponent
 
-        <form id="logout-form" action="{{ route('laravel-dashboard-template.logout') }}" method="POST" class="ldt-hidden">
+        <form id="ldt-logout-form" action="{{ route('laravel-dashboard-template.logout') }}" method="POST" class="ldt-hidden">
             @csrf
         </form>
     @endif
