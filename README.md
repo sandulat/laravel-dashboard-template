@@ -249,6 +249,13 @@ After you'll compile your front-end assets you can include them like this:
 
 > Note: If you don't have [front-end assets versioning](https://laravel.com/docs/5.8/mix#versioning-and-cache-busting) you might want to use the `asset()` method instead of `mix()`.
 
+## Custom Logout Button
+
+You can hide the default logout button by applying `display: none;` onto id `#ldt-logout-button`. The template already provides a logout system with customizable callbacks, so you can make use of it. Just submit the default "hidden" logout form with Javascript:
+```js
+document.getElementById("ldt-logout-form").submit();
+```
+
 ## Credits
 
 Created by [Stratulat Alexandru](https://twitter.com/sandulat).
