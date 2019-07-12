@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace Sandulat\LaravelDashboardTemplate;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\ServiceProvider;
 
 final class LaravelDashboardTemplateServiceProvider extends ServiceProvider
 {

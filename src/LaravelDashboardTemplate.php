@@ -5,8 +5,8 @@ declare(strict_types=1);
 namespace Sandulat\LaravelDashboardTemplate;
 
 use Closure;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\RedirectResponse;
 
 final class LaravelDashboardTemplate
