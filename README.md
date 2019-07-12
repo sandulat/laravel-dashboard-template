@@ -10,8 +10,6 @@
   <img src="https://img.shields.io/twitter/follow/sandulat.svg?style=social">
 </a>
 <p>
-    
-🌀 Docs in progress.
 
 ## Installation
 
