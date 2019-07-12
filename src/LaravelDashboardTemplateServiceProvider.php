@@ -1,60 +1,76 @@
 <?php
 
+declare(strict_types=1);
+
 namespace Sandulat\LaravelDashboardTemplate;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Support\Facades\Route;
 
-class LaravelDashboardTemplateServiceProvider extends ServiceProvider
+final class LaravelDashboardTemplateServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
-    public function boot()
+    public function boot(): void
     {
-        /*
-         * Optional methods to load your package assets
-         */
-        // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'laravel-dashboard-template');
-        // $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-dashboard-template');
-        // $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-        // $this->loadRoutesFrom(__DIR__.'/routes.php');
+        $this->registerRoutes();
+
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'laravel-dashboard-template');
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
-                __DIR__.'/../config/config.php' => config_path('laravel-dashboard-template.php'),
-            ], 'config');
-
-            // Publishing the views.
-            /*$this->publishes([
                 __DIR__.'/../resources/views' => resource_path('views/vendor/laravel-dashboard-template'),
-            ], 'views');*/
+            ], 'laravel-dashboard-template-views');
 
-            // Publishing assets.
-            /*$this->publishes([
-                __DIR__.'/../resources/assets' => public_path('vendor/laravel-dashboard-template'),
-            ], 'assets');*/
+            $this->publishes([
+                __DIR__.'/../public' => public_path('vendor/laravel-dashboard-template'),
+            ], 'laravel-dashboard-template-assets');
 
-            // Publishing the translation files.
-            /*$this->publishes([
-                __DIR__.'/../resources/lang' => resource_path('lang/vendor/laravel-dashboard-template'),
-            ], 'lang');*/
-
-            // Registering package commands.
-            // $this->commands([]);
+            $this->publishes([
+                __DIR__.'/../stubs/LaravelDashboardTemplateServiceProvider.stub' => app_path('Providers/DashboardServiceProvider.php'),
+            ], 'laravel-dashboard-template-provider');
         }
     }
 
     /**
      * Register the application services.
      */
-    public function register()
+    public function register(): void
     {
-        // Automatically apply the package configuration
-        $this->mergeConfigFrom(__DIR__.'/../config/config.php', 'laravel-dashboard-template');
+        $this->commands([
+            Console\InstallCommand::class,
+            Console\PublishCommand::class,
+        ]);
 
-        // Register the main class to use with the facade
         $this->app->singleton('laravel-dashboard-template', function () {
             return new LaravelDashboardTemplate;
         });
+    }
+
+    /**
+     * Register the package routes.
+     *
+     * @return void
+     */
+    private function registerRoutes(): void
+    {
+        Route::group($this->routeConfiguration(), function () {
+            $this->loadRoutesFrom(__DIR__.'/Http/routes.php');
+        });
+    }
+
+    /**
+     * Get the main route group configuration array.
+     *
+     * @return array
+     */
+    private function routeConfiguration(): array
+    {
+        return [
+            'namespace' => 'Sandulat\LaravelDashboardTemplate\Http\Controllers',
+            'prefix' => 'laravel-dashboard-template',
+            'middleware' => 'web',
+        ];
     }
 }
