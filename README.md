@@ -11,6 +11,8 @@
 </a>
 <p>
 
+> Note: Not suitable for single page applications as it's built in `Blade`, however you can use Vue/React/etc. components on all pages.
+
 ## Installation
 
 ```bash
@@ -37,7 +39,13 @@ Create a route and a controller that will return a view. Inside the view place t
 
 > Note: `ldt` stands for `laravel-dashboard-template`.
 
-As you can see `laravel-dashboard-template::page` is just a layout. Besides `ldt-content` the layout provides 2 more additional slots: `ldt-topbar-left` and `ldt-topbar-right` which point to the right and left of the top bar. To avoid duplication of those slots, it would be better to create your own layout that will extend the package's layout.
+As you can see `laravel-dashboard-template::page` is just a layout. Besides `ldt-content` the layout provides 4 more additional slots:
+- `ldt-head` - Head section for CSS, meta, etc.
+- `ldt-scripts` - Scripts section to include JS files.
+- `ldt-topbar-left` - Left section of topbar.
+- `ldt-topbar-right` - Right section of topbar, next to profile dropdown.
+
+To avoid duplication of these slots, it would be better to create your own layout that will extend the package's layout.
 
 `my_layout.blade.php:`
 ```blade
@@ -213,6 +221,10 @@ I've tried to split the template into as many components & partials as possible.
 - components/dropdown.blade.php
 - components/dropdown_item.blade.php
 - components/topbar.blade.php
+
+## Using Vue/React/etc. components
+
+The main div that wraps the dashboard has an `app` id. You can load your front-end framework onto this id and start using your components on all pages.
 
 ## Credits
 
