@@ -11,7 +11,7 @@
     @endforeach
 
     @if(auth()->check())
-        @component('laravel-dashboard-template::components.dropdown_item', ['onClick' => 'event.preventDefault(); document.getElementById("ldt-logout-form").submit();'])
+        @component('laravel-dashboard-template::components.dropdown_item', ['onClick' => 'event.preventDefault(); document.getElementById("ldt-logout-form").submit();', 'id' => 'ldt-logout-button'])
             Logout
         @endcomponent
 
