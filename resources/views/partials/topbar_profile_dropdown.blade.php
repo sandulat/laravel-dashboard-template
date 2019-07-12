@@ -5,7 +5,7 @@
     @endslot
 
     @foreach($template->profileDropdownLinks() as $link)
-        @component('laravel-dashboard-template::components.dropdown_item', ['url' => $link['url']])
+        @component('laravel-dashboard-template::components.dropdown_item', $link)
             {{ $link['label'] }}
         @endcomponent
     @endforeach

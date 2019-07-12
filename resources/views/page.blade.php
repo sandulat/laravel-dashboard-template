@@ -8,9 +8,10 @@
     <title>{{ config('app.name', 'Laravel') }} - Dashboard</title>
     <link rel="shortcut icon" href="{{ asset('/vendor/laravel-dashboard-template/favicon.ico') }}">
     <link rel="stylesheet" href="{{ asset(mix('laravel-dashboard-template.css', 'vendor/laravel-dashboard-template')) }}">
+    @yield('ldt-head')
 </head>
 <body class="ldt-bg-gray-200 ldt-font-sans ldt-h-full ldt-overflow-x-hidden ldt-w-full ldt-h-full">
-    <div class="ldt-flex ldt-flex-col lg:ldt-flex-row ldt-relative ldt-w-full">
+    <div id="app" class="ldt-flex ldt-flex-col lg:ldt-flex-row ldt-relative ldt-w-full">
         @include('laravel-dashboard-template::partials.sidebar')
         <main class="ldt-w-full ldt-min-h-screen">
             @component('laravel-dashboard-template::components.topbar', ['template' => $template])
@@ -32,5 +33,6 @@
             </div>
         </main>
     </div>
+    @yield('ldt-scripts')
 </body>
 </html>

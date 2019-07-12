@@ -2,7 +2,7 @@
     <button class="ldt-flex ldt-items-center ldt-cursor-pointer ldt-text-sm">
         {{ $activator }}
         @if (trim($slot))
-            <svg class="ldt-fill-current ldt-h-4 ldt-w-4 ldt-ml-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/></svg>
+            @include('laravel-dashboard-template::partials.dropdown_arrow')
         @endif
     </button>
 
